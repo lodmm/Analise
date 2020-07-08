@@ -42,7 +42,7 @@ fig = plt.figure()
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.metrics import roc_auc_score
 from sklearn.tree import DecisionTreeClassifier
-
+#print(model['y_train'])
 
 classifier = AdaBoostClassifier(base_estimator=DecisionTreeClassifier(
         max_depth=9, min_samples_leaf=0.1, max_features='auto'), learning_rate=0.2, n_estimators=200)
@@ -78,6 +78,8 @@ for model in sets:
 	models[i] = aux
 	#metrics.plot_roc_curve(classifier, model['X_test'][vars], model['y_test'])
 	i = i + 1
+print(pred)
+print(pred1)
 file = "resultados/tmvasol.root"
 tfile = uproot.open(file)
 result = tfile.get("dataset")
